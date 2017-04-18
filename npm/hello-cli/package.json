@@ -1,0 +1,21 @@
+{
+  "name": "hello-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "hello": "node --debug-brk index.js",
+    "test": "./node_modules/.bin/ava -v"
+  },
+  "preferGlobal": "true",
+  "bin": {
+    "hello": "index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "coffee": "^3.3.0"
+  }
+}
