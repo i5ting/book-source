@@ -2,6 +2,7 @@ const http = require('http')
 const PORT = 3000
 
 http.createServer((req, res) => {
+  console.log(`${req.method} ${req.url}`)
   // 设置Response状态码和Headers
   res.writeHead(200, {'Content-Type': 'text/plain'})
   
