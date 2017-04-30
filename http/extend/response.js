@@ -1,7 +1,6 @@
 'use strict'
 
 const http = require('http')
-
 var res = Object.create(http.ServerResponse.prototype)
 
 res.json = function json(obj) {
