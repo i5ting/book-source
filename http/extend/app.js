@@ -1,17 +1,17 @@
 const http = require('http')
 
-const extendedRequest = require('./request')
+const request = require('./request')
 const response = require('./response')
 
 const app = http.createServer((req, res) => {
-  var request = Object.create(extendedRequest);
-  request.request = req;
+  var newReq = Object.create(request)
+  newReq.request = req
 
   res.__proto__ = response
   
   res.json({
     data: {
-      query: request.query
+      query: newReq.query
     },
     status: {
       code: 0,
