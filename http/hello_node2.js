@@ -19,7 +19,7 @@ const app = http.createServer((req, res) => {
   res.end()
 })
 
-app.listen(function() {
+app.listen(3000, ()  => {
   const PORT = app.address().port
   
   console.log(`Server running at http://127.0.0.1:${PORT}/`)
