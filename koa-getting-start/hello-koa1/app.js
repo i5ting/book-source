@@ -15,7 +15,7 @@ app.use(function *loggermildleware(next){
 
 // response
 app.use(function *responsemildleware(){
-  console.log('[response middleware] after yield...')
+  console.log('[response middleware] response...')
 
   this.body = 'Hello World'
 })
