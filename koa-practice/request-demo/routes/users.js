@@ -1,9 +1,21 @@
 const router = require('koa-router')()
+const multer = require('koa-multer');
+const upload = multer({ dest: 'uploads/' });
 
 router.prefix('/users')
 
-router.get('/', (ctx, next) => {
-  ctx.body = 'respond with a resource'
+
+router.post('/', upload.any(), (ctx) => {
+	console.log(ctx.req.files)
+	ctx.body = {
+		status: {
+			code: 0,
+			msg: 'upload sucess'
+		},
+		data: {
+			body: ctx.req.body
+		}
+	}
 })
 
 router.get('/:id', (ctx, next) => {
@@ -12,19 +24,27 @@ router.get('/:id', (ctx, next) => {
 
 // POST http://127.0.0.1:3001/users/post
 router.post('/post', (ctx, next) => {
+	console.log(ctx.request.body)
 	ctx.body = ctx.request.body
 })
 
-router.post('/post/formdata', (ctx, next) => {
-  // ctx.body = 'respond with a resource'
-	console.log(req.body, req.files)
-	console.log(req.files.pic.path)
-	res.json(req.body)
+router.post('/post/formdata', upload.any(), (ctx) => {
+	console.log(ctx.req.files)
+	ctx.body = {
+		status: {
+			code: 0,
+			msg: 'upload sucess'
+		},
+		data: {
+			body: ctx.req.body,
+			files: ctx.req.files
+		}
+	}
 })
 
 router.post('/post/raw', (ctx, next) => {
   // ctx.body = 'respond with a resource'
-	res.json(JSON.parse(req.text))
+	ctx.body = ctx.request.body
 })
 
 module.exports = router
