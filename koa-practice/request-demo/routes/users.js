@@ -4,7 +4,6 @@ const upload = multer({ dest: 'uploads/' });
 
 router.prefix('/users')
 
-
 router.post('/', upload.any(), (ctx) => {
 	console.log(ctx.req.files)
 	ctx.body = {
@@ -43,7 +42,6 @@ router.post('/post/formdata', upload.any(), (ctx) => {
 })
 
 router.post('/post/raw', (ctx, next) => {
-  // ctx.body = 'respond with a resource'
 	ctx.body = ctx.request.body
 })
 
