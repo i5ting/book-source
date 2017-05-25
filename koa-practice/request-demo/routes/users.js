@@ -45,4 +45,9 @@ router.post('/post/raw', (ctx, next) => {
 	ctx.body = ctx.request.body
 })
 
+
+router.post('/post/jsonapi/', (ctx, next) => {
+	ctx.body = ctx.request.body
+})
+
 module.exports = router
